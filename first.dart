@@ -8,6 +8,7 @@ class flutter3 extends StatefulWidget {
 }
 
 class _flutter3State extends State<flutter3> {
+  bool ToF = true;
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -75,10 +76,15 @@ class _flutter3State extends State<flutter3> {
               Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: TextField(
-                  obscureText: true,
+                  obscureText: ToF,
                   obscuringCharacter: "*",
                   decoration: InputDecoration(
                     prefixIcon:Icon(Icons.phone_android) ,
+                    suffixIcon:  IconButton(onPressed: (){
+                      ToF = !ToF;
+                      setState(() {
+                      });
+                    }, icon: Icon(Icons.remove_red_eye_rounded)),
                     label: Text("PhoneNumber"),
                     hintText: "PhoneNumber",
                     border: OutlineInputBorder(
